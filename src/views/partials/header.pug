@@ -1,0 +1,40 @@
+header
+    a(href="/").header__logo
+        img(src="https://cdn-icons-png.flaticon.com/512/777/777242.png")
+
+
+    nav
+        ul
+            if loggedIn
+                li 
+                    a(href="/users/logout").door 나가기 
+                        
+                li 
+                    a(href="/users/edit") 정보수정 
+           
+
+                li 
+                    a(href="/videos/upload") 비디오 업로드 
+          
+                li
+                    a(href="/search") 찾기 
+                        img(src="https://cdn-icons-png.flaticon.com/512/4991/4991078.png")
+
+                li 
+                    a(href=`/users/${loggedInUser._id}`)
+                        if loggedInUser.avatarUrl === ""
+                            span 😀
+                        else
+                            if loggedInUser.avatarUrl
+                                if loggedInUser.avatarUrl.includes("github")
+                                    img.header__avatar(src=loggedInUser.avatarUrl)
+                                else
+                                    img.header__avatar(src=loggedInUser.avatarUrl)
+            else
+                li
+                    a(href="/login")  Login                        
+                li
+                    a(href="/join").header__btn  Join
+            
+
+    

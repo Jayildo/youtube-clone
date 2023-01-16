@@ -1,0 +1,14 @@
+extends base.pug
+include mixins/video
+
+block content
+    form(method="GET").search__form
+        input(placeholder = "Search by title", name = "keyword", type = "text")
+        button
+            img(src="https://cdn-icons-png.flaticon.com/512/4991/4991078.png")
+
+    div.video-grid 
+        each video in videos 
+            +video(video)
+        else
+            span.empty__message No videos found
